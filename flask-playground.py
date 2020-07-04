@@ -4,7 +4,8 @@ import json
 
 app = Flask(__name__)
 
+country_service = CountryService()
+
 @app.route('/countries')
 def countries():
-    country_service = CountryService()
     return json.dumps(country_service.get_countries(), default=lambda o: o.__dict__, indent=4)
