@@ -9,6 +9,3 @@ class Country(Place):
 
     def add_city(self, city):
         self.cities.append(city)
-
-
-        

@@ -1,19 +1,9 @@
-from model.city import City
-from model.country import Country
+from repository.country_repository import CountryRepository
 
 class CountryService:
 
+    def __init__(self):
+        self.repository = CountryRepository()
+
     def get_countries(self):
-        argentina = Country('Argentina')
-        buenos_aires = City('Buenos Aires')
-        salta = City('Salta')
-        ushuaia = City('Ushuaia')
-        argentina.add_city(buenos_aires)
-        argentina.add_city(salta)
-        argentina.add_city(ushuaia)
-
-        indonesia = Country('Indonesia')
-        jakarta = City('Jakarta')
-        indonesia.add_city(jakarta)
-
-        return [argentina, indonesia]
+        return self.repository.get_all()
